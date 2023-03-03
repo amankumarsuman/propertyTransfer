@@ -2,6 +2,8 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 import "./styles/Home.css";
 import { useAddress } from "@thirdweb-dev/react";
 import { BookDetails } from "./component/BookDetails";
+import { StackingDapp } from "./component/StackingDapp";
+import { LibraryDetails } from "./component/LibraryDetails";
 export default function Home() {
   const address = useAddress();
 
@@ -51,7 +53,8 @@ export default function Home() {
             </p>
           </a>
         </div> */}
-        <BookDetails />
+        {/* <StackingDapp /> */}
+        <LibraryDetails />
       </main>
     </div>
   );

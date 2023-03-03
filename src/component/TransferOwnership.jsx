@@ -30,10 +30,11 @@ const CssTextField = styled(TextField)({
 function TransferOwnership() {
   const transferInit = {
     id: 0,
-    owner: "",
+    studentName: "",
   };
 
-  const contractAddress = "0x0e700F25B207941BD7D5A7d0a196A10BCfA568Fc";
+  // const contractAddress = "0x0e700F25B207941BD7D5A7d0a196A10BCfA568Fc";
+  const contractAddress = "0x41f8e7913D733DfeF7c03e750E6022624585FcA7";
 
   const { contract } = useContract(contractAddress);
 
@@ -46,7 +47,7 @@ function TransferOwnership() {
   //write fn context
   const { mutateAsync, isLoadings, errors } = useContractWrite(
     contract,
-    "transferPropertyOwnership"
+    "transferBook"
   );
 
   const handleTransfer = () => {
@@ -64,12 +65,12 @@ function TransferOwnership() {
       >
         <Grid sx={{ textAlign: "center" }} container spacing={2}>
           <Grid item xs={12} md={12}>
-            <h3 style={{ color: "green" }}>Transfer Ownership</h3>
+            <h3 style={{ color: "green" }}>Transfer Book to Another Student</h3>
           </Grid>
           <Grid item xs={12} md={4}>
             <CssTextField
               variant="outlined"
-              label="Enter ID "
+              label="Enter Book ID "
               name="id"
               fullWidth
               value={transferInput?.id}
@@ -83,10 +84,10 @@ function TransferOwnership() {
           <Grid item xs={12} md={4}>
             <CssTextField
               variant="outlined"
-              label="Enter New Owner Name "
-              name="owner"
+              label="Enter New Student Name "
+              name="studentName"
               fullWidth
-              value={transferInput?.owner}
+              value={transferInput?.studentName}
               InputLabelProps={{
                 style: { color: "#fff" },
               }}
@@ -100,7 +101,7 @@ function TransferOwnership() {
               action={() =>
                 mutateAsync(
                   // Place your arguments here in an array, in the same order as your smart contract function
-                  [transferInput?.id, transferInput?.owner]
+                  [transferInput?.id, transferInput?.studentName]
                 )
               }
               onClick={handleTransfer}
