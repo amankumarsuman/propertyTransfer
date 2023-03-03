@@ -8,6 +8,8 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { alpha, styled } from "@mui/material/styles";
 import { Button, Grid, Paper } from "@mui/material";
+import ContractOwner from "./GetContractOwnerAddress";
+import TransferOwnership from "./TransferOwnership";
 // Your smart contract address
 // const contractAddress = "{{contract_address}}";
 const contractAddress = "0x0e700F25B207941BD7D5A7d0a196A10BCfA568Fc";
@@ -51,6 +53,7 @@ function BookDetails() {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
+
   const { contract } = useContract(contractAddress);
   const [index, setIndex] = useState(1);
   const { data, isLoading, error } = useContractRead(
@@ -161,6 +164,7 @@ function BookDetails() {
             />
           </Grid>
           <Grid item xs={12} md={4}></Grid>
+
           <Grid item xs={12} md={4}>
             <Web3Button
               contractAddress={contractAddress}
@@ -181,6 +185,19 @@ function BookDetails() {
             </Web3Button>
           </Grid>
         </Grid>
+      </Paper>
+
+      {/* transfer ownership */}
+      <TransferOwnership />
+      <Paper
+        sx={{
+          background: "#1b2129",
+          padding: "10px 20px",
+          marginBottom: "20px",
+        }}
+        elevation={6}
+      >
+        <ContractOwner />
       </Paper>
       <CssTextField
         variant="outlined"
