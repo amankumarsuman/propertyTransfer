@@ -1,27 +1,35 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import "./styles/Home.css";
-
+import { useAddress } from "@thirdweb-dev/react";
+import { BookDetails } from "./component/BookDetails";
 export default function Home() {
+  const address = useAddress();
+
   return (
     <div className="container">
       <main className="main">
         <h1 className="title">
-          Welcome to <a href="https://thirdweb.com/">thirdweb</a>!
+          Welcome to{" "}
+          <a style={{ textDecoration: "none" }} href="https://thirdweb.com/">
+            Library Management
+          </a>
+          !
         </h1>
 
         <p className="description">
-          Get started by configuring your desired network in{" "}
-          <code className="code">src/index.js</code>, then modify the{" "}
-          <code className="code">src/App.js</code> file!
+          {/* {address ? <div>No wallet connected</div> : { address }}; */}
+          {address ? "You are Connected" : "Connect"}
+          {/* <code className="code">src/index.js</code>, then modify the{" "}
+          <code className="code">src/App.js</code> file! */}
         </p>
 
         <div className="connect">
           <ConnectWallet />
         </div>
 
-        <div className="grid">
+        {/* <div className="grid">
           <a href="https://portal.thirdweb.com/" className="card">
-            <h2>Portal &rarr;</h2>
+            <h2>Book 1 Details &rarr;</h2>
             <p>
               Guides, references and resources that will help you build with
               thirdweb.
@@ -42,7 +50,8 @@ export default function Home() {
               Discover and clone template projects showcasing thirdweb features.
             </p>
           </a>
-        </div>
+        </div> */}
+        <BookDetails />
       </main>
     </div>
   );
