@@ -48,7 +48,7 @@ function LibraryDetails() {
     bookName: "",
     issuerName: "",
     studentName: "",
-    studentId: "",
+    studentId: 1,
     bookEdition: "",
   };
 
@@ -159,6 +159,7 @@ function LibraryDetails() {
               label="Enter Student Id "
               name="studentId"
               fullWidth
+              type="number"
               value={input?.studentId}
               InputLabelProps={{
                 style: { color: "#fff" },
