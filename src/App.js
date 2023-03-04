@@ -12,7 +12,9 @@ export default function Home() {
       <main className="main">
         <h1 className="title">
           Welcome to{" "}
-          <a style={{ textDecoration: "none" }} href="https://thirdweb.com/">
+          <a style={{ textDecoration: "none" }} 
+          // href="https://thirdweb.com/"
+          >
             Library Management
           </a>
           !

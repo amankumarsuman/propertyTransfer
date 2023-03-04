@@ -2,7 +2,7 @@ import { useContract, useContractRead } from "@thirdweb-dev/react";
 
 export default function ContractOwner() {
   const { contract } = useContract(
-    "0x0e700F25B207941BD7D5A7d0a196A10BCfA568Fc"
+    "0x70b15CA40D2a2dAE97Df7CA9e2dFcf0e05e802fD"
   );
   const { data, isLoading } = useContractRead(contract, "contractOwner");
 

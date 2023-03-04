@@ -34,7 +34,7 @@ function TransferOwnership() {
   };
 
   // const contractAddress = "0x0e700F25B207941BD7D5A7d0a196A10BCfA568Fc";
-  const contractAddress = "0x41f8e7913D733DfeF7c03e750E6022624585FcA7";
+  const contractAddress = "0x70b15CA40D2a2dAE97Df7CA9e2dFcf0e05e802fD";
 
   const { contract } = useContract(contractAddress);
 
